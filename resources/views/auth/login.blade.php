@@ -26,6 +26,8 @@
         <div class="wrapper">
             <form action="/auth/login" method="post" name="Login_Form" class="form-signin">       
                 <h3 class="form-signin-heading">Intranet Huellas - Iniciar Sesión</h3>
+                @include('alertas.error')
+                @include('alertas.request')
                   <hr class="colorgraph"><br>
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <input type="text" class="form-control" name="email" placeholder="Correo" value="{{ old('email') }}" required autofocus/>
@@ -42,9 +44,9 @@
                   @endif
                   <button id="btnLogin" class="btn btn-lg btn-primary btn-block"  name="Submit" value="Iniciar Sesión" type="Submit">Login</button>
                   <ul class="register-opt">
-                      <li>Si usted es docente y desea registrarse, <a href="/registro/docentes">clic aqui</a>.</li>
-                      <li>Si usted es padre de familia y desea registrarse, <a href="/registro/padres">clic aqui</a>.</li>
-                      <li>Si usted es alumno y desea registrarse, <a href="/registro/alumnos">clic aqui</a>.</li>
+                      <li>Si usted es docente y desea registrarse, <a href="{{ route('register::docentes')}}">clic aqui</a>.</li>
+                      <li>Si usted es padre de familia y desea registrarse, <a href="{{ route('register::padres')}}">clic aqui</a>.</li>
+                      <li>Si usted es alumno y desea registrarse, <a href="{{ route('register::alumnos')}}">clic aqui</a>.</li>
                   </ul>
             </form>			
         </div>

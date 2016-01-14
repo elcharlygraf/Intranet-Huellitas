@@ -7,40 +7,23 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use App\Http\Requests\AuthRequest;
+
+use Auth;
+use Session;
+use Redirect;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
-
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     
     private $redirectTo = '/';    
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -52,12 +35,6 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
     protected function create(array $data)
     {                        
         if(array_key_exists('seccionPrimaria', $data)){
@@ -115,7 +92,23 @@ class AuthController extends Controller
         ]);
     }
     
-    public function loginPath(){        
-        return route('/');
-    }            
+    public function login(){        
+        return view('auth.login');
+    }
+
+    public function postLogin(AuthRequest $request)
+    {
+        if(Auth::attempt(['email' => $request['email'], 'password' => $request['password'] ],$request['remember']))
+        {
+            return Redirect::to('/');
+        }
+        Session::flash('message-error', 'Los datos son incorrectos');
+        return Redirect::to('/');
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+        return Redirect::to('/');
+    }      
 }

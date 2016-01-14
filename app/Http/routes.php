@@ -4,7 +4,7 @@
 */
 Route::group(['as' => 'acceso::', 'prefix' => 'acceso', 'namespace' => 'auth'], function () {
     Route::get('/',  'AuthController@login')->name('login');
-    Route::post('/', 'AuthController@logout')->name('postLogin');
+    Route::post('/', 'AuthController@postLogin')->name('postLogin');
     Route::get('/logout', 'AuthController@logout')->name('logout');
 });
 
