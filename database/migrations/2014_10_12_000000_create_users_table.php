@@ -20,15 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('colegio');
             $table->string('grado');
-            $table->string('seccion_primaria');
-            $table->string('seccion_secundaria');
+            $table->string('nivel');
             $table->string('docente_tutor');
             $table->string('docente_religion');
             $table->string('cargo');
             $table->string('password', 60);
-            $table->string('proyecto_huellas');
-            $table->string('proyecto_jmf');
-            $table->char('tipo_usuario',1);
+            $table->string('proyecto');
+            $table->string('tipo_usuario');
             $table->rememberToken();
             $table->timestamps();
         });

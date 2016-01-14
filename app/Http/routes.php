@@ -17,9 +17,9 @@ Route::group(['as' => 'register::', 'prefix' => 'register'], function () {
 	Route::get('/docentes', 'HomeController@createDocentes')->name('docentes');
 	Route::get('/alumnos',  'HomeController@createAlumnos')->name('alumnos');
 
-	Route::post('/padres',   'HomeController@storePadres')->name('padres');
-	Route::post('/docentes', 'HomeController@storeDocentes')->name('docentes');
-	Route::post('/alumnos',  'HomeController@storeAlumnos')->name('alumnos');
+	Route::post('/padres',   'HomeController@storePadres')->name('postPadres');
+	Route::post('/docentes', 'HomeController@storeDocentes')->name('postDocentes');
+	Route::post('/alumnos',  'HomeController@storeAlumnos')->name('postAlumnos');
 });
 
 /*

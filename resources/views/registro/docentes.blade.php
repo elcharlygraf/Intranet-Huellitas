@@ -24,19 +24,12 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                <form role="form" method="post" action="/auth/register">
+                {!! Form::open(['route' => 'register::postDocentes', 'class' => 'form-signin']) !!}     
                     <h2>Registro de Usuario <small>Intranet Huellas - Docentes.</small></h2>
                     <hr class="colorgraph">
-                    @if(count($errors) > 0)
-                    <div class="alert alert-danger">
-                        Por favor, corrija los siguientes errores: <br><br>
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach                                          
-                        </ul>                     
-                    </div>                     
-                  @endif
+                    @include('alertas.request')
+                    @include('alertas.error')
+                    @include('alertas.success')
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6">
                             <div class="form-group">
@@ -74,12 +67,12 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 checkboxes">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="seccionPrimaria" name="seccionPrimaria" tabindex="7" value="off"> Primaria
+                                <input type="radio" id="nivel" name="nivel" value="Primaria" tabindex="7"> Primaria
                             </label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="seccionSecundaria" name="seccionSecundaria" value="off" tabindex="8"> Secundaria
+                                <input type="radio" id="nivel" name="nivel" value="Secundaria" tabindex="8"> Secundaria
                             </label>
-                        </div>                    
+                        </div>                   
                     </div>
                     <div class="row">                        
                         <div class="col-xs-12 col-sm-12 col-ms-12">
@@ -88,25 +81,25 @@
                         <div class="col-xs-12 col-sm-12 col-md-6">                            
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="Tutor" checked>
+                                    <input type="radio" name="cargo" id="cargo1" value="Tutor" checked>
                                     Tutor
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="ProfesorReligion">
+                                    <input type="radio" name="cargo" id="cargo2" value="ProfesorReligion">
                                     Profesor de Religión
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="CoordinadorTutoria">
+                                    <input type="radio" name="cargo" id="cargo3" value="CoordinadorTutoria">
                                     Coordinador de Tutoría
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="Otro">
+                                    <input type="radio" name="cargo" id="cargo4" value="Otro">
                                     Otro
                                 </label>
                             </div>                            
@@ -114,19 +107,19 @@
                         <div class="col-xs-12 col-sm-12 col-md-6">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios5" value="DirectorCoordAcademico">
+                                    <input type="radio" name="cargo" id="cargo5" value="DirectorCoordAcademico">
                                     Coordinador Académico
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios6" value="Director">
+                                    <input type="radio" name="cargo" id="cargo6" value="Director">
                                     Director
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios7" value="Promotor">
+                                    <input type="radio" name="cargo" id="cargo7" value="Promotor">
                                     Promotor
                                 </label>
                             </div>                            
@@ -143,19 +136,19 @@
                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-10 checkboxes">                            
                             <label class="checkbox-inline">
-                                <input type="checkbox" value="off" id="proyHuellas" name="proyHuellas" tabindex="12"> Huellas
+                                <input type="radio" value="proyHuellas" id="proyHuellas" name="proyecto" tabindex="12"> Huellas
                             </label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" value="off" id="proyJMF" name="proyJMF" tabindex="13"> Jesus Me Fascina
+                                <input type="radio" value="proyJMF" id="proyJMF" name="proyecto" tabindex="13"> Jesus Me Fascina
                             </label>
                         </div>                    
                     </div>
                     <hr class="colorgraph">
                     <div class="row">
                         <div class="col-xs-12 col-md-6"><input type="submit" value="Registrar" class="btn btn-primary btn-block btn-lg" tabindex="14"></div>
-                        <div class="col-xs-12 col-md-6"><a id="btnLogin" href="/" class="btn btn-success btn-block btn-lg">Iniciar Sesión</a></div>
+                        <div class="col-xs-12 col-md-6"><a id="btnLogin" href="{{ route('acceso::login')}}" class="btn btn-success btn-block btn-lg">Iniciar Sesión</a></div>
                     </div>
-                </form>
+                {!! Form::close() !!}   
             </div>
         </div>
     </div>

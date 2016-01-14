@@ -24,31 +24,21 @@
 <body>    
     <div class = "container">
         <div class="wrapper">
-            <form action="/auth/login" method="post" name="Login_Form" class="form-signin">       
-                <h3 class="form-signin-heading">Intranet Huellas - Iniciar Sesión</h3>
-                @include('alertas.error')
-                @include('alertas.request')
-                  <hr class="colorgraph"><br>
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <input type="text" class="form-control" name="email" placeholder="Correo" value="{{ old('email') }}" required autofocus/>
-                  <input type="password" class="form-control" name="password" placeholder="Contraseña" required/>   
-                  @if(count($errors) > 0)
-                    <div class="alert alert-danger">
-                        Por favor, corrija los siguientes errores: <br><br>
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach                                          
-                        </ul>                     
-                    </div>                     
-                  @endif
-                  <button id="btnLogin" class="btn btn-lg btn-primary btn-block"  name="Submit" value="Iniciar Sesión" type="Submit">Login</button>
-                  <ul class="register-opt">
-                      <li>Si usted es docente y desea registrarse, <a href="{{ route('register::docentes')}}">clic aqui</a>.</li>
-                      <li>Si usted es padre de familia y desea registrarse, <a href="{{ route('register::padres')}}">clic aqui</a>.</li>
-                      <li>Si usted es alumno y desea registrarse, <a href="{{ route('register::alumnos')}}">clic aqui</a>.</li>
-                  </ul>
-            </form>			
+          {!! Form::open(['route' => 'acceso::postLogin', 'class' => 'form-signin']) !!}     
+            <h3 class="form-signin-heading">Intranet Huellas - Iniciar Sesión</h3>
+            @include('alertas.error')
+            @include('alertas.request')
+              <hr class="colorgraph"><br>
+              {!! Form::text('email', '',['class' => 'form-control', 'placeholder' => 'email@gmail.com']); !!}
+              {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '******']); !!} 
+              
+              <button id="btnLogin" class="btn btn-lg btn-primary btn-block"  name="Submit" value="Iniciar Sesión" type="Submit">Login</button>
+              <ul class="register-opt">
+                  <li>Si usted es docente y desea registrarse, <a href="{{ route('register::docentes')}}">clic aqui</a>.</li>
+                  <li>Si usted es padre de familia y desea registrarse, <a href="{{ route('register::padres')}}">clic aqui</a>.</li>
+                  <li>Si usted es alumno y desea registrarse, <a href="{{ route('register::alumnos')}}">clic aqui</a>.</li>
+              </ul>
+          {!! Form::close() !!}     
         </div>
     </div>
    

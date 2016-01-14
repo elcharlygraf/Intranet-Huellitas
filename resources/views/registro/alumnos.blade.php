@@ -24,24 +24,16 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                <form role="form" method="post" action="/auth/register">
+                {!! Form::open(['route' => 'register::postAlumnos', 'class' => 'form-signin']) !!}     
                     <h2>Registro de Usuario <small>Intranet Huellas - Alumnos.</small></h2>
                     <hr class="colorgraph">
-                    @if(count($errors) > 0)
-                    <div class="alert alert-danger">
-                        Por favor, corrija los siguientes errores: <br><br>
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach                                          
-                        </ul>                     
-                    </div>                     
-                  @endif
+                    @include('alertas.request')
+                    @include('alertas.error')
+                    @include('alertas.success')
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <input type="text" name="nombres" id="nombres" class="form-control input-lg" placeholder="Nombres" tabindex="1" autofocus required>
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="tipo_usuario" value="alumno">
                             </div>
                         </div>
@@ -65,10 +57,10 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 checkboxes">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="seccionPrimaria" name="seccionPrimaria" value="Primaria" tabindex="7"> Primaria
+                                <input type="radio" id="nivel" name="nivel" value="Primaria" tabindex="7"> Primaria
                             </label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="seccionSecundaria" name="seccionSecundaria" value="Secundaria" tabindex="8"> Secundaria
+                                <input type="radio" id="nivel" name="nivel" value="Secundaria" tabindex="8"> Secundaria
                             </label>
                         </div>                    
                     </div>
@@ -89,19 +81,19 @@
                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-10 checkboxes">                            
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="proyHuellas" value="Huellas" tabindex="12"> Huellas
+                                <input type="radio" value="proyHuellas" id="proyHuellas" name="proyecto" tabindex="12"> Huellas
                             </label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="proyJMF" value="JMF" tabindex="13"> Jesus Me Fascina
+                                <input type="radio" value="proyJMF" id="proyJMF" name="proyecto" tabindex="13"> Jesus Me Fascina
                             </label>
-                        </div>                    
+                        </div>                  
                     </div>
                     <hr class="colorgraph">
                     <div class="row">
                         <div class="col-xs-12 col-md-6"><input type="submit" value="Registrar" class="btn btn-primary btn-block btn-lg" tabindex="14"></div>
-                        <div class="col-xs-12 col-md-6"><a id="btnLogin" href="/" class="btn btn-success btn-block btn-lg">Iniciar Sesión</a></div>
+                        <div class="col-xs-12 col-md-6"><a id="btnLogin" href="{{ route('acceso::login')}}" class="btn btn-success btn-block btn-lg">Iniciar Sesión</a></div>
                     </div>
-                </form>
+                {!! Form::close() !!}   
             </div>
         </div>
     </div>
