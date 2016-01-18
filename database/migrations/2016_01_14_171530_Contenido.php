@@ -17,6 +17,10 @@ class Contenido extends Migration
             $table->string('target_grado');
             $table->string('target_seccion');
             $table->string('target_ficha');
+            $table->string('PDFthumbnail');
+            $table->string('PDFTipo');
+            
+            
             $table->timestamps();
         });
     }

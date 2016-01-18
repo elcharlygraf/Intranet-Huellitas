@@ -75,6 +75,7 @@ class AdminController extends Controller
         'target_grado'   => $request['target_grado'],
         'target_seccion' => $request['target_seccion'],
         'target_ficha'   => $request['target_ficha'],
+        'PDFTipo'        => 'videos',
         
         'created_at'     => date('Y-m-d H:i:s')
         ]);

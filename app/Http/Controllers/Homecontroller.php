@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Session;
 use Route;
+use Auth;
 
 class Homecontroller extends Controller
 {
@@ -43,7 +44,13 @@ class Homecontroller extends Controller
 
 
         if($nivel && $grado && $ficha && $tipo){
-            $data = DB::table('contenidos')->get();
+            $data = DB::table('contenidos')
+            ->where('target_usuario', Auth::user()->tipo_usuario)
+            ->where('target_grado',$nivel)
+            ->where('target_seccion',$grado)
+            ->where('target_ficha',$ficha)
+            ->where('PDFTipo',$tipo)
+            ->get();
             return view('contenido', compact('data'));
 
         }
