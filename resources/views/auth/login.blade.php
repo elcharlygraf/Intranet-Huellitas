@@ -24,21 +24,36 @@
 <body>    
     <div class = "container">
         <div class="wrapper">
+          <div class="bs-example" data-example-id="basic-forms">
           {!! Form::open(['route' => 'acceso::postLogin', 'class' => 'form-signin']) !!}     
             <h3 class="form-signin-heading">Intranet Huellas - Iniciar Sesión</h3>
             @include('alertas.error')
             @include('alertas.request')
               <hr class="colorgraph"><br>
-              {!! Form::text('email', '',['class' => 'form-control', 'placeholder' => 'email@gmail.com']); !!}
-              {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '******']); !!} 
               
+              <div class="form-group">
+              {!! Form::text('email', '',['class' => 'form-control', 'placeholder' => 'Correo Electronico']); !!}
+              </div>
+              
+              <div class="form-group">
+              {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '******']); !!} 
+              </div>
+
               <button id="btnLogin" class="btn btn-lg btn-primary btn-block"  name="Submit" value="Iniciar Sesión" type="Submit">Login</button>
-              <ul class="register-opt">
-                  <li>Si usted es docente y desea registrarse, <a href="{{ route('register::docentes')}}">clic aqui</a>.</li>
-                  <li>Si usted es padre de familia y desea registrarse, <a href="{{ route('register::padres')}}">clic aqui</a>.</li>
-                  <li>Si usted es alumno y desea registrarse, <a href="{{ route('register::alumnos')}}">clic aqui</a>.</li>
-              </ul>
+
+              <div class="bs-callout bs-callout-warning" id="callout-formgroup-inputgroup">
+                <div class="form-group"> 
+                  <ul class="register-opt">
+                    <li>Si usted es docente y desea registrarse, <a href="{{ route('register::docentes')}}">clic aqui</a>.</li>
+                    <li>Si usted es padre de familia y desea registrarse, <a href="{{ route('register::padres')}}">clic aqui</a>.</li>
+                    <li>Si usted es alumno y desea registrarse, <a href="{{ route('register::alumnos')}}">clic aqui</a>.</li>
+                  </ul>
+                </div>
+              </div>
+
+              
           {!! Form::close() !!}     
+          </div>
         </div>
     </div>
    

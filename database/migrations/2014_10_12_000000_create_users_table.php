@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('cargo');
             $table->string('password', 60);
             $table->string('proyecto');
+            $table->string('qtycargo');
             $table->string('tipo_usuario');
             $table->rememberToken();
             $table->timestamps();

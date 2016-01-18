@@ -18,6 +18,14 @@ class Homecontroller extends Controller
 {
     private $path = 'registro';
 
+    public function welcome(){
+        return view('welcome');
+    }
+
+    public function selectgrado(){
+        return view('selectgrado');
+    }
+
     public function createPadres(){
         return view($this->path.'.padres');
     }
@@ -38,7 +46,7 @@ class Homecontroller extends Controller
             'colegio'           => $request['colegio'],
             'grado'             => $request['grado'],
             'nivel'             => $request['nivel'],
-            'docente_tutor'     => $request['optionsRadios'],
+            'docente_tutor'     => $request['tutor'],
             'docente_religion'  => $request['religion'],
             'password'          => bcrypt($request['password']),
             'proyecto'          => $request['proyecto'],
@@ -54,6 +62,7 @@ class Homecontroller extends Controller
         Session::flash('message-error', 'error');
         return redirect()->back();
     }
+
     public function storeDocentes(DocenteRequest $request){
         $create = DB::table('users')->insert(
             [
@@ -64,7 +73,8 @@ class Homecontroller extends Controller
             'colegio'           => $request['colegio'],
             'grado'             => $request['grado'],
             'nivel'             => $request['nivel'],
-            'cargo'             => $request['cargo'],
+            'cargo'             => implode(',',$request['cargo']),
+            'qtycargo'          => count($request['cargo']) > 1 ? 'many' : 'only',
             'password'          => bcrypt($request['password']),
             'proyecto'          => $request['proyecto'],
             'tipo_usuario'      => 'docente',
@@ -79,6 +89,7 @@ class Homecontroller extends Controller
         Session::flash('message-error', 'error');
         return redirect()->back();
     }
+
     public function storeAlumnos(AlumnoRequest $request){
         $create = DB::table('users')->insert(
             [
@@ -103,5 +114,13 @@ class Homecontroller extends Controller
         }
         Session::flash('message-error', 'error');
         return redirect()->back();
+    }
+
+    public function fichasPrimaria(){
+        return view('fichas');
+    }
+
+    public function fichasSecundaria(){
+        return view('fichas');
     }
 }

@@ -35,7 +35,12 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('/home');
+            if($this->auth->user()->tipo_usuario == 'admin'){
+
+                return redirect()->route('admin::index');
+
+            }
+            return redirect()->route('users::welcome');
         }
 
         return $next($request);

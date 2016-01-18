@@ -36,7 +36,7 @@ class AuthController extends Controller
     }
 
     protected function create(array $data)
-    {                        
+    {
         if(array_key_exists('seccionPrimaria', $data)){
             $seccionPrimaria = "on";
         } else {
@@ -103,7 +103,7 @@ class AuthController extends Controller
             return Redirect::to('/');
         }
         Session::flash('message-error', 'Los datos son incorrectos');
-        return Redirect::to('/');
+        return Redirect::back();
     }
 
     public function getLogout()

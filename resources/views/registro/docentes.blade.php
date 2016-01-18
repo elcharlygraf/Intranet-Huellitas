@@ -60,46 +60,106 @@
                         <input type="text" name="colegio" id="colegio" class="form-control input-lg" placeholder="Colegio" tabindex="5" required>
                     </div>  
                     <div class="row">
+                       <div class="col-xs-12 col-sm-12 col-md-12">
+                            <h2><small>Grado y Sección</small></h2>
+                        </div>
                         <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input type="text" name="grado" id="grado" class="form-control input-lg" placeholder="Grado" tabindex="6" required>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado1" value="1ero Primaria">
+                                    1ero Primaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado2" value="2do Primaria">
+                                    2do Primaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado3" value="3ero Primaria">
+                                    3ero Primaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado4" value="4to Primaria">
+                                    4to Primaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado5" value="5to Primaria">
+                                    5to Primaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado6" value="6to Primaria">
+                                    6to Primaria
+                                </label>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 checkboxes">
-                            <label class="checkbox-inline">
-                                <input type="radio" id="nivel" name="nivel" value="Primaria" tabindex="7"> Primaria
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="radio" id="nivel" name="nivel" value="Secundaria" tabindex="8"> Secundaria
-                            </label>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado7" value="1ero Secundaria">
+                                    1ero Secundaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado8" value="2do Secundaria">
+                                    2do Secundaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado9" value="3ero Secundaria">
+                                    3ero Secundaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado10" value="4to Secundaria">
+                                    4to Secundaria
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="grado[]" id="grado11" value="5to Secundaria">
+                                    5to Secundaria
+                                </label>
+                            </div>                            
                         </div>                   
                     </div>
                     <div class="row">                        
-                        <div class="col-xs-12 col-sm-12 col-ms-12">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <h2><small>Cargo que desempeña</small></h2>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6">                            
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="cargo" id="cargo1" value="Tutor" checked>
+                                    <input type="checkbox" name="cargo[]" id="cargo1" value="Tutor" checked>
                                     Tutor
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="cargo" id="cargo2" value="ProfesorReligion">
+                                    <input type="checkbox" name="cargo[]" id="cargo2" value="ProfesorReligion">
                                     Profesor de Religión
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="cargo" id="cargo3" value="CoordinadorTutoria">
+                                    <input type="checkbox" name="cargo[]" id="cargo3" value="CoordinadorTutoria">
                                     Coordinador de Tutoría
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="cargo" id="cargo4" value="Otro">
+                                    <input type="checkbox" name="cargo[]" id="cargo4" value="Otro">
                                     Otro
                                 </label>
                             </div>                            
@@ -107,19 +167,19 @@
                         <div class="col-xs-12 col-sm-12 col-md-6">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="cargo" id="cargo5" value="DirectorCoordAcademico">
+                                    <input type="checkbox" name="cargo[]" id="cargo5" value="DirectorCoordAcademico">
                                     Coordinador Académico
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="cargo" id="cargo6" value="Director">
+                                    <input type="checkbox" name="cargo[]" id="cargo6" value="Director">
                                     Director
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="cargo" id="cargo7" value="Promotor">
+                                    <input type="checkbox" name="cargo[]" id="cargo7" value="Promotor">
                                     Promotor
                                 </label>
                             </div>                            
@@ -135,11 +195,12 @@
                            </div>
                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-10 checkboxes">                            
-                            <label class="checkbox-inline">
-                                <input type="radio" value="proyHuellas" id="proyHuellas" name="proyecto" tabindex="12"> Huellas
+                            
+                               <label class="checkbox-inline">
+                                <input type="checkbox" value="proyHuellas" id="proyHuellas" name="proyecto[]" tabindex="12"> Huellas
                             </label>
                             <label class="checkbox-inline">
-                                <input type="radio" value="proyJMF" id="proyJMF" name="proyecto" tabindex="13"> Jesus Me Fascina
+                                <input type="checkbox" value="proyJMF" id="proyJMF" name="proyecto[]" tabindex="13"> Jesus Me Fascina
                             </label>
                         </div>                    
                     </div>
