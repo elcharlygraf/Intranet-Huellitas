@@ -67,13 +67,19 @@
             <div class="container">                
                 <div class="row">
                     <div class="five columns">
-                        <center><a href="#" style="text-decoration:none"><img src="{{ asset('assets/images/pdf.png') }}" alt="" class="img-responsive"><br><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SESIONES DE CLASE</h5></a></center>
+                        <center>
+                        <a href="{{ route('users::selecttipo', [Route::getCurrentRoute()->getParameter('nivel'),Route::getCurrentRoute()->getParameter('grado'),Route::getCurrentRoute()->getParameter('ficha'),'sesiones'])}}" style="text-decoration:none">
+                        <img src="{{ asset('assets/images/pdf.png') }}" alt="" class="img-responsive"><br><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SESIONES DE CLASE</h5></a></center>
                     </div>
                     <div class="five columns">
-                        <center><a href="#" style="text-decoration:none"><img src="{{ asset('assets/images/pdf.png') }}" alt="" class="img-responsive"><br><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LECTURAS DE APOYO</h5></a></center>
+                        <center>
+                        <a href="{{ route('users::selecttipo', [Route::getCurrentRoute()->getParameter('nivel'),Route::getCurrentRoute()->getParameter('grado'),Route::getCurrentRoute()->getParameter('ficha'),'lectura'])}}" style="text-decoration:none">
+                        <img src="{{ asset('assets/images/pdf.png') }}" alt="" class="img-responsive"><br><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LECTURAS DE APOYO</h5></a></center>
                     </div>
                     <div class="five columns">
-                        <center><a href="#" style="text-decoration:none"><img src="{{ asset('assets/images/youtube.png') }}" alt="" class="img-responsive"><br><h5>VIDEOS</h5></a></center>
+                        <center>
+                        <a href="{{ route('users::selecttipo', [Route::getCurrentRoute()->getParameter('nivel'),Route::getCurrentRoute()->getParameter('grado'),Route::getCurrentRoute()->getParameter('ficha'),'video'])}}" style="text-decoration:none">
+                        <img src="{{ asset('assets/images/youtube.png') }}" alt="" class="img-responsive"><br><h5>VIDEOS</h5></a></center>
                     </div>
                 </div>                  
                 <div class="row">                       

@@ -74,12 +74,12 @@
                             <center><img src="/assets/images/primaria.png" alt="" class="img-responsive"><br><h5>PRIMARIA</h5></center>
                         </div>
                         <div class="grados_container">
-                            <a href="{{ route('users::fichasPrimaria', 1) }} "><button class="button-primary">1er Grado</button></a>
-                            <a href="{{ route('users::fichasPrimaria', 2) }} "><button class="button-primary">2do Grado</button></a>
-                            <a href="{{ route('users::fichasPrimaria', 3) }} "><button class="button-primary">3er Grado</button></a>
-                            <a href="{{ route('users::fichasPrimaria', 4) }} "><button class="button-primary">4to Grado</button></a>
-                            <a href="{{ route('users::fichasPrimaria', 5) }} "><button class="button-primary">5to Grado</button></a>
-                            <a href="{{ route('users::fichasPrimaria', 6) }} "><button class="button-primary">6to Grado</button></a>
+                            <a href="{{ route('users::selectficha',['primaria', 1]) }} "><button class="button-primary">1er Grado</button></a>
+                            <a href="{{ route('users::selectficha',['primaria', 2]) }} "><button class="button-primary">2do Grado</button></a>
+                            <a href="{{ route('users::selectficha',['primaria', 3]) }} "><button class="button-primary">3er Grado</button></a>
+                            <a href="{{ route('users::selectficha',['primaria', 4]) }} "><button class="button-primary">4to Grado</button></a>
+                            <a href="{{ route('users::selectficha',['primaria', 5]) }} "><button class="button-primary">5to Grado</button></a>
+                            <a href="{{ route('users::selectficha',['primaria', 6]) }} "><button class="button-primary">6to Grado</button></a>
                         </div>                        
                     </div>                    
                     <div class="eight columns">
@@ -87,11 +87,11 @@
                             <center><img src="/assets/images/secundaria.png" alt="" class="img-responsive"><br><h5>SECUNDARIA</h5></center>
                         </div>
                         <div class="grados_container">
-                            <a href="{{ route('users::fichasSecundaria', 1) }} "><button class="button-primary">1er Grado</button></a>
-                            <a href="{{ route('users::fichasSecundaria', 2) }} "><button class="button-primary">2do Grado</button></a>
-                            <a href="{{ route('users::fichasSecundaria', 3) }} "><button class="button-primary">3er Grado</button></a>
-                            <a href="{{ route('users::fichasSecundaria', 4) }} "><button class="button-primary">4to Grado</button></a>
-                            <a href="{{ route('users::fichasSecundaria', 5) }} "><button class="button-primary">5to Grado</button></a>
+                            <a href="{{ route('users::selectficha',['secundaria', 1]) }} "><button class="button-primary">1er Grado</button></a>
+                            <a href="{{ route('users::selectficha',['secundaria', 2]) }} "><button class="button-primary">2do Grado</button></a>
+                            <a href="{{ route('users::selectficha',['secundaria', 3]) }} "><button class="button-primary">3er Grado</button></a>
+                            <a href="{{ route('users::selectficha',['secundaria', 4]) }} "><button class="button-primary">4to Grado</button></a>
+                            <a href="{{ route('users::selectficha',['secundaria', 5]) }} "><button class="button-primary">5to Grado</button></a>
                         </div>              
                     </div>
                 </div>            

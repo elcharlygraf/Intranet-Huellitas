@@ -20,15 +20,15 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
       
       <!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->   
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->   
          
       <!-- Favicons
             ================================================== -->
-      <link rel="shortcut icon" href="/images/favicon.png" />
-      <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-      <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png" />
-      <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png" />
+      <link rel="shortcut icon" href="/assets/images/favicon.png" />
+      <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+      <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
       
 </head>
 <body>
@@ -40,7 +40,9 @@
                   <div class="sixteen columns">
                         <ul>
                               <li><a href="#">INICIO</a></li>
-                              <li><a target="_blank" href="http://www.huellas.pe">PORTAL</a></li>
+                              <li><a href="#">PRIMARIA</a></li>
+                              <li><a href="#">SECUNDARIA</a></li>
+                              <li><a href="#">PORTAL</a></li>
                               <li><a href="{{ route('acceso::logout')}}">CERRAR SESION</a></li>
                         </ul>
                   </div>
@@ -61,26 +63,31 @@
             <div class="page-header">
                   <div class="container">
                         <div class="sixteen columns">
-                              <h1 class="one"><span>BIENVENIDO</span></h1>
+                              <h1 class="one"><span>Seleccione una Ficha</span></h1>
                         </div>
                   </div>
             </div>
             <div class="container">
                 <div class="row">
+                    <div class="sixteen columns">                        
+                        <div class="grados_container">
+                        @for($i=1; $i<21; $i++)
+
+                            <a href="{{ route('users::selectcontenido',[Route::getCurrentRoute()->getParameter('nivel'),Route::getCurrentRoute()->getParameter('grado'),$i]) }}">
+                              <button class="button-primary">Ficha {{$i}}</button>
+                            </a>
+
+                        @endfor    
+                        </div>                        
+                    </div>                                        
+                </div>   
+                <div class="row">
                     <div class="sixteen columns">
-                        <h3>Les damos la bienvenida a la intranet de Huellas</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pulvinar, diam quis blandit dictum, lectus est luctus nisl, at tincidunt augue magna vel libero. Sed dapibus purus ante, a sagittis purus cursus eu. Sed condimentum magna id tincidunt finibus. Proin pharetra imperdiet nunc, tincidunt varius velit molestie sit amet. Nullam eget orci justo. Sed sed laoreet diam, quis commodo nulla. Duis felis lacus, sollicitudin eget enim sed, auctor dignissim sapien. Sed quis lacus ac est mollis dapibus. Quisque vitae tellus et ex bibendum porta. Fusce pretium suscipit lorem. Aliquam vitae interdum leo. Donec arcu purus, rhoncus a sapien in, viverra feugiat leo.</p>
-                        <p>Nullam tincidunt velit id mattis commodo. Vivamus eu mi non lectus varius imperdiet. Nunc feugiat odio quis commodo tempus. Proin fermentum tempus lorem vitae pretium. Suspendisse nec nulla eu sapien cursus fringilla in quis lorem. Suspendisse eu nunc sit amet velit molestie faucibus. Quisque consequat pretium odio ac pellentesque. Sed mollis et ante sit amet ultricies. Proin iaculis vulputate dui, non vehicula tortor molestie ut. Suspendisse in risus at ante convallis lacinia non nec sapien. Curabitur sed tellus rhoncus, malesuada augue sed, ornare urna.</p>
-                        <center><a href="{{ route('users::selectgrado') }}"><button class="button-primary">CONTINUAR</button></a></center>
-                        
-                        @if(Auth::user()->tipo_usuario == 'alumno')
-                              @include('admin.publicidad.alumno')
-                        @else
-                              @include('admin.publicidad.docente')
-                        @endif            
-                        
-                    </div>                    
-                </div>            
+                        <div id="publicidad">
+                            <center><img src="http://lorempixel.com/600/200/" class="img-responsive" alt=""></center>
+                        </div>
+                    </div>
+                </div>                 
             </div>
             </div>
       </div>
@@ -96,7 +103,7 @@
                                           <div class="ch-item">
                                                 <div class="ch-info">
                                                       <div class="ch-info-front ch-img-1"></div>
-                                                      <div class="ch-info-back"> <img src="/images/social-icons/facebook_dark.png" alt="" /> </div>
+                                                      <div class="ch-info-back"> <img src="/assets/images/social-icons/facebook_dark.png" alt="" /> </div>
                                                 </div>
                                           </div>
                                     </li>
@@ -105,7 +112,7 @@
                                           <div class="ch-item">
                                                 <div class="ch-info">
                                                       <div class="ch-info-front ch-img-3"></div>
-                                                      <div class="ch-info-back"> <img src="/images/social-icons/twitter02_dark.png" alt="" /> </div>
+                                                      <div class="ch-info-back"> <img src="/assets/images/social-icons/twitter02_dark.png" alt="" /> </div>
                                                 </div>
                                           </div>
                                     </li>
@@ -131,56 +138,56 @@
       
                   <!-- jQuery.js 
                         ================================================== --> 
-                  <script src="/js/jquery.js"></script> 
+                  <script src="/assets/js/jquery.js"></script> 
                   
                   <!-- Social Icons Hover
                         ================================================== -->                  
-                  <script type="text/javascript" src="/js/social-icons-hover/social-icons-modernizr.custom.js"></script> 
+                  <script type="text/javascript" src="/assets/js/social-icons-hover/social-icons-modernizr.custom.js"></script> 
                   
                   <!-- AJAX Contact Form
                         ================================================== -->                   
-                  <script type="text/javascript" src="/js/contact/contact-form.js"></script>                 
+                  <script type="text/javascript" src="/assets/js/contact/contact-form.js"></script>                 
                                    
                   <!-- Portfolio 
                         ================================================== --> 
-                  <script src="/js/isotope/jquery.isotope.min.js"></script> 
-                  <script src="/js/isotope/Isotope-Filtering.js"></script> 
+                  <script src="/assets/js/isotope/jquery.isotope.min.js"></script> 
+                  <script src="/assets/js/isotope/Isotope-Filtering.js"></script> 
                   
                   <!-- PrettyPhoto for Portfolio
                         ================================================== -->
-                  <script src="/js/prettyphoto/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script> 
-                  <script src="/js/prettyphoto/custom.js" type="text/javascript" charset="utf-8"></script> 
+                  <script src="/assets/js/prettyphoto/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script> 
+                  <script src="/assets/js/prettyphoto/custom.js" type="text/javascript" charset="utf-8"></script> 
                   
                   <!-- Supersized Slider
                         ================================================== -->                  
-                  <script type="text/javascript" src="/js/supersized/jquery.easing.min.js"></script>                   
+                  <script type="text/javascript" src="/assets/js/supersized/jquery.easing.min.js"></script>                   
                   
                   <!-- Main Top Navigation
                         ================================================== --> 
-                  <script type="text/javascript" src="/js/navigation/jquery.sticky.js"></script>
+                  <script type="text/javascript" src="/assets/js/navigation/jquery.sticky.js"></script>
                   <script>
                         $(document).ready(function(){
                               $("#navigation").sticky({topSpacing:0});
                         });
                   </script>                    
-                  <script src="/js/navigation/jquery.nav.js"></script> 
-                  <script src="/js/navigation/custom.js"></script> 
+                  <script src="/assets/js/navigation/jquery.nav.js"></script> 
+                  <script src="/assets/js/navigation/custom.js"></script> 
                   
                   <!-- Combo Box Menu [Select Menu]
                         ================================================== --> 
-                  <script src="/js/navigation/select.js" type="text/javascript"></script> 
+                  <script src="/assets/js/navigation/select.js" type="text/javascript"></script> 
                   
                   <!-- Twitter
                         ================================================== --> 
-                  <script type="text/javascript" src="/js/twitter/jquery.twitter.js"></script> 
+                  <script type="text/javascript" src="/assets/js/twitter/jquery.twitter.js"></script> 
                   <script type="text/javascript">
                         $(document).ready(function() {
                               $("#twitter").getTwitter({
                                     userName: "envato",
-                                    numTweets: 1,								
+                                    numTweets: 1,                               
                                     slideIn: true,
                                     slideDuration: 200,
-                                    showHeading: true,								
+                                    showHeading: true,                              
                                     showProfileLink: true,
                                     showTimestamp: true,
                                     includeRetweets: false,

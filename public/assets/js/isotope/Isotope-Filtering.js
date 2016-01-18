@@ -2,7 +2,6 @@ $(window).load(function () {
 
     var $container = $('#container-thumbs');
     $container.isotope({
-        filter:'.notis',
         itemSelector: '.element',
         // disable resizing
         resizable: false,

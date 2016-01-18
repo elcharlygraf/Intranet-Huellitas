@@ -13,6 +13,7 @@ use App\Http\Requests\PadreRequest;
 use App\Http\Controllers\Controller;
 use DB;
 use Session;
+use Route;
 
 class Homecontroller extends Controller
 {
@@ -24,6 +25,28 @@ class Homecontroller extends Controller
 
     public function selectgrado(){
         return view('selectgrado');
+    }
+
+    public function selectficha(){
+        return view('selectficha');
+    }
+
+    public function selectcontenido(){
+        return view('fichas');
+    }
+
+    public function show(){
+        $nivel = Route::getCurrentRoute()->getParameter('nivel');
+        $grado = Route::getCurrentRoute()->getParameter('grado');
+        $ficha = Route::getCurrentRoute()->getParameter('ficha');
+        $tipo  = Route::getCurrentRoute()->getParameter('tipo');
+
+
+        if($nivel && $grado && $ficha && $tipo){
+            $data = DB::table('contenidos')->get();
+            return view('contenido', compact('data'));
+
+        }
     }
 
     public function createPadres(){

@@ -28,7 +28,7 @@ class AdminController extends Controller
 
     public function index(){
     	$all = DB::table('contenidos')->get();
-    	return view($this->path.'.contenido.index', compact('all'));
+    	return view($this->path.'.contenido.contenidopdf', compact('all'));
     }
 
     public function storeContenido(ContenidoRequest $request)

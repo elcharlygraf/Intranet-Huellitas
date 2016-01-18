@@ -59,8 +59,9 @@ Route::group( ['middleware' => ['auth'], 'prefix'=>'users', 'as' => 'users::'], 
 	Route::get('/welcome',   	  'HomeController@welcome')->name('welcome');
 	Route::get('/select/grado',   'HomeController@selectgrado')->name('selectgrado');
 
-	Route::get('/fichas/primaria/{grado}', 'HomeController@fichasPrimaria')->name('fichasPrimaria');
-	Route::get('/fichas/secundaria/{grado}', 'HomeController@fichasSecundaria')->name('fichasSecundaria');
+	Route::get('/select/{nivel}/{grado}',   	  'HomeController@selectficha')->name('selectficha');
+	Route::get('/select/{nivel}/{grado}/{ficha}', 'HomeController@selectcontenido')->name('selectcontenido');
+	Route::get('/select/{nivel}/{grado}/{ficha}/{tipo}', 'HomeController@show')->name('selecttipo');
 
 });
 //DOCENTES
