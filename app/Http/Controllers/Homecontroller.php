@@ -44,12 +44,11 @@ class Homecontroller extends Controller
             'telefono'          => $request['telefono'],
             'email'             => $request['email'],
             'colegio'           => $request['colegio'],
-            'grado'             => $request['grado'],
-            'nivel'             => $request['nivel'],
+            'grado'             => implode(',',$request['grado']),
             'docente_tutor'     => $request['tutor'],
             'docente_religion'  => $request['religion'],
             'password'          => bcrypt($request['password']),
-            'proyecto'          => $request['proyecto'],
+            'proyecto'          => implode(',',$request['proyecto']),
             'tipo_usuario'      => 'padre',
             'created_at'        => date('Y-m-d H:i:s')
             ]
@@ -71,7 +70,7 @@ class Homecontroller extends Controller
             'telefono'          => $request['telefono'],
             'email'             => $request['email'],
             'colegio'           => $request['colegio'],
-            'grado'             => $request['grado'],
+            'grado'             => implode(',',$request['cargo']),
             'nivel'             => $request['nivel'],
             'cargo'             => implode(',',$request['cargo']),
             'qtycargo'          => count($request['cargo']) > 1 ? 'many' : 'only',
